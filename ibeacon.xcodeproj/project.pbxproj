@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B531297718CDF6D70061DC89 /* Broadcaster.m in Sources */ = {isa = PBXBuildFile; fileRef = B531297618CDF6D70061DC89 /* Broadcaster.m */; };
 		B591DC6718CDF0620059945B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B591DC6618CDF0620059945B /* Foundation.framework */; };
 		B591DC6A18CDF0620059945B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B591DC6918CDF0620059945B /* main.m */; };
 		B591DC6E18CDF0620059945B /* ibeacon.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B591DC6D18CDF0620059945B /* ibeacon.1 */; };
@@ -30,8 +29,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B531297518CDF6D70061DC89 /* Broadcaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Broadcaster.h; sourceTree = "<group>"; };
-		B531297618CDF6D70061DC89 /* Broadcaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Broadcaster.m; sourceTree = "<group>"; };
 		B591DC6318CDF0620059945B /* ibeacon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ibeacon; sourceTree = BUILT_PRODUCTS_DIR; };
 		B591DC6618CDF0620059945B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B591DC6918CDF0620059945B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,8 +92,6 @@
 				B591DC6918CDF0620059945B /* main.m */,
 				B591DC6D18CDF0620059945B /* ibeacon.1 */,
 				B591DC6B18CDF0620059945B /* Supporting Files */,
-				B531297518CDF6D70061DC89 /* Broadcaster.h */,
-				B531297618CDF6D70061DC89 /* Broadcaster.m */,
 			);
 			path = ibeacon;
 			sourceTree = "<group>";
@@ -179,7 +174,6 @@
 			files = (
 				B591DC7C18CDF1070059945B /* Scanner.m in Sources */,
 				B591DC6A18CDF0620059945B /* main.m in Sources */,
-				B531297718CDF6D70061DC89 /* Broadcaster.m in Sources */,
 				B591DC7B18CDF1070059945B /* ScanItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
