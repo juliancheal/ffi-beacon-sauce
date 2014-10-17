@@ -36,7 +36,6 @@
 }
 
 - (void)tick {
-
     [self print];
     [self clean];
     [self scan];
