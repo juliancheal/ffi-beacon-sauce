@@ -62,8 +62,6 @@ int main(int argc, char * argv[]) {
                     break;
             }
         }
-//XXX        Scanner *scanner = [[Scanner alloc] init];
-//XXX        [scanner startWithTimeInterval:interval];
         [[NSRunLoop currentRunLoop] run];
     }
     return exit_value;
@@ -90,7 +88,6 @@ void startWithTimeInterval(double interval, callback_function completion_callbac
 #pragma clang diagnostic pop
         
         int ret = completion_callback(uuid, major , minor, power, rssi);
-        Puts(@"%d",ret);
         if (ret != 0) {
             exit(EXIT_SUCCESS);
         }
