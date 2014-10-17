@@ -1,7 +1,3 @@
-//
-//  Copyright (c) 2014 RadiusNetworks. All rights reserved.
-//
-
 #import "ScanItem.h"
 
 @implementation ScanItem

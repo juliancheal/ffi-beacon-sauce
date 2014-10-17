@@ -1,9 +1,6 @@
-//
-//  Copyright (c) 2014 RadiusNetworks. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import <IOBluetooth/IOBluetooth.h>
+#import "ScanItem.h"
 
 @interface Scanner : NSObject <CBCentralManagerDelegate>
 
@@ -11,7 +8,8 @@
 @property NSTimer *timer;
 @property NSMutableDictionary *scans;
 @property double quietTime;
+@property (nonatomic, copy) void (^externalCallback)(ScanItem *i);
 
-- (void)startWithTimeInterval:(double)interval;
+- (void)startWithTimeInterval:(double)interval andBlock: (void (^)(ScanItem *i))callback;
 
 @end

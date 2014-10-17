@@ -1,7 +1,3 @@
-//
-//  Copyright (c) 2014 RadiusNetworks. All rights reserved.
-//
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <getopt.h>
@@ -66,16 +62,38 @@ int main(int argc, char * argv[]) {
                     break;
             }
         }
-        Scanner *scanner = [[Scanner alloc] init];
-        [scanner startWithTimeInterval:interval];
+//XXX        Scanner *scanner = [[Scanner alloc] init];
+//XXX        [scanner startWithTimeInterval:interval];
         [[NSRunLoop currentRunLoop] run];
     }
     return exit_value;
 }
 
+typedef int (*callback_function)(const char *uuid, int major, int minor, int power, int rssi);
 
-void startWithTimeInterval(double interval) {
+void startWithTimeInterval(double interval, callback_function completion_callback) {
     Scanner *scanner = [[Scanner alloc] init];
-    [scanner startWithTimeInterval:interval];
-    [[NSRunLoop currentRunLoop] run];
+    [scanner startWithTimeInterval:interval andBlock: ^void (ScanItem *i) {
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wformat-nonliteral"
+        const char* uuid = [[NSString stringWithFormat:i.uuid] cStringUsingEncoding:NSUTF8StringEncoding];
+#pragma clang diagnostic pop
+
+        
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshorten-64-to-32"
+        int major = i.major;
+        int minor = i.minor;
+        int power = i.power;
+        int rssi = i.rssi;
+#pragma clang diagnostic pop
+        
+        int ret = completion_callback(uuid, major , minor, power, rssi);
+        Puts(@"%d",ret);
+        if (ret != 0) {
+            exit(EXIT_SUCCESS);
+        }
+    }];
+     [[NSRunLoop currentRunLoop] run];
 }

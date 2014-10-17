@@ -1,7 +1,3 @@
-//
-//  Copyright (c) 2014 RadiusNetworks. All rights reserved.
-//
-
 #import "Scanner.h"
 #import "ScanItem.h"
 #import "Macros.h"
@@ -16,8 +12,9 @@
     return self;
 }
 
-- (void)startWithTimeInterval: (double)interval {
-    dispatch_queue_t scanQueue = dispatch_queue_create("com.radiusnetworks.scanbeacon.scanner", DISPATCH_QUEUE_SERIAL);
+- (void)startWithTimeInterval: (double)interval andBlock: (void (^)(ScanItem *i))callback {
+    self.externalCallback = callback;
+    dispatch_queue_t scanQueue = dispatch_queue_create("com.tweed.lawyer", DISPATCH_QUEUE_SERIAL);
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:scanQueue];
     [self startTimer:interval];
 }
@@ -39,6 +36,7 @@
 }
 
 - (void)tick {
+
     [self print];
     [self clean];
     [self scan];
@@ -65,9 +63,10 @@
     NSMutableArray *list = [[NSMutableArray alloc] init];
     for(NSString *key in [self.scans allKeys]) {
         ScanItem *scanItem = [self.scans objectForKey:key];
-        [list addObject:scanItem.jsonString];
+        self.externalCallback(scanItem);
+        //[list addObject:scanItem.jsonString];
     }
-    Puts(@"{ranged: [%@]}", [list componentsJoinedByString:@",\n          "]);
+    //Puts(@"{ranged: [%@]}", [list componentsJoinedByString:@",\n          "]);
 }
 
 - (void)scan {
@@ -77,10 +76,10 @@
 }
 
 - (void)printEnter: (ScanItem *)scanItem {
-    Puts(@"{entered: %@}", scanItem.jsonString);
+//    Puts(@"{entered: %@}", scanItem.jsonString);
 }
 - (void)printExit: (ScanItem *)scanItem {
-    Puts(@"{exited: %@}", scanItem.jsonString);
+//    Puts(@"{exited: %@}", scanItem.jsonString);
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)rssi
