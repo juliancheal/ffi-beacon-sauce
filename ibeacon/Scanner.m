@@ -59,14 +59,10 @@
 }
 
 - (void)print {
-
-    NSMutableArray *list = [[NSMutableArray alloc] init];
     for(NSString *key in [self.scans allKeys]) {
         ScanItem *scanItem = [self.scans objectForKey:key];
         self.externalCallback(scanItem);
-        //[list addObject:scanItem.jsonString];
     }
-    //Puts(@"{ranged: [%@]}", [list componentsJoinedByString:@",\n          "]);
 }
 
 - (void)scan {
