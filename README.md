@@ -1,6 +1,6 @@
 # iBeacon CLI
 
-Swiss Army Command Line Utility for working with iBeacons.
+iBeacon and AltBeacon command line scanner
 
 ## Usage
 
@@ -10,27 +10,13 @@ ibeacon: iBeacon command line utility
       -h  --help             Display this message
       -v  --version          Display 'Version 1.0.0'
       -s  --scan             Scan for iBeacons
-      -b  --broadcast        Broadcast as an iBeacon
 
     Scan options:
       -i  --interval         Time interval in seconds
-
-    Broadcast options:
-      -i  --uuid             Proximity UUID
-      -M  --major            Major Identifier
-      -m  --minor            Minor Identifier
-      -p  --power            Advertised Power
 ```
 
 
 ### Examples
-
-Broadcasting:
-
-```
-% ibeacon --broadcast --uuid 2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6 --major 100 --minor 101
-Broadcasting iBeacon UUID: 2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6, Major: 100, Minor: 101, Power: -32
-```
 
 Scanning:
 
