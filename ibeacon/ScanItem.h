@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <IOBluetooth/IOBluetooth.h>
 
-
 @interface ScanItem : NSObject
 
 @property (strong) NSString *identifier;
@@ -16,7 +15,5 @@
 - (id)initWithPeripheral:(CBPeripheral *)peripheral
        advertisementData:(NSDictionary *)advertisementData
                     RSSI:(NSNumber *)rssi;
-
-- (NSString *)jsonString;
 
 @end

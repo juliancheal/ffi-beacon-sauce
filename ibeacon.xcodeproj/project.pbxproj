@@ -35,7 +35,6 @@
 		B591DC6C18CDF0620059945B /* ibeacon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ibeacon-Prefix.pch"; sourceTree = "<group>"; };
 		B591DC6D18CDF0620059945B /* ibeacon.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ibeacon.1; sourceTree = "<group>"; };
 		B591DC7418CDF0BC0059945B /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
-		B591DC7618CDF1070059945B /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		B591DC7718CDF1070059945B /* ScanItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanItem.h; sourceTree = "<group>"; };
 		B591DC7818CDF1070059945B /* ScanItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanItem.m; sourceTree = "<group>"; };
 		B591DC7918CDF1070059945B /* Scanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		B591DC6818CDF0620059945B /* ibeacon */ = {
 			isa = PBXGroup;
 			children = (
-				B591DC7618CDF1070059945B /* Macros.h */,
 				B591DC7718CDF1070059945B /* ScanItem.h */,
 				B591DC7818CDF1070059945B /* ScanItem.m */,
 				B591DC7918CDF1070059945B /* Scanner.h */,

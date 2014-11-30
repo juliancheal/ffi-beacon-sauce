@@ -46,15 +46,4 @@
     return self;
 }
 
-- (NSString *)jsonString {
-    return [NSString stringWithFormat:@"{ uuid: \"%@\", major: %ld, minor: %ld, rssi: %ld, power: %ld }",
-          self.uuid,
-          (long)self.major,
-          (long)self.minor,
-          (long)self.rssi,
-          (long)self.power];
-
-}
-
-
 @end

@@ -4,7 +4,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Scanner.h"
-#import "Macros.h"
 #import "GeneratedVersion.h"
 
 static void sigint(const int signum) {
@@ -15,6 +14,11 @@ static void sigint(const int signum) {
 void print_version() {
     printf("Version %s\n", VERSION);
 }
+
+int version() {
+    return 0;
+}
+
 void print_usage() {
     printf("ibeacon: iBeacon command line utility\n");
     printf("\n");

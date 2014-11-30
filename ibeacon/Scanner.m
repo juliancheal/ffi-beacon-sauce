@@ -1,6 +1,5 @@
 #import "Scanner.h"
 #import "ScanItem.h"
-#import "Macros.h"
 
 @implementation Scanner
 
@@ -51,7 +50,6 @@
         // Remove scans older than quite time
         NSTimeInterval diff = [[NSDate date] timeIntervalSinceDate: scanItem.last_seen];
         if (diff > self.quietTime) {
-            [self printExit:scanItem];
             [self.scans removeObjectForKey: key];
         }
     }
@@ -70,13 +68,6 @@
     }
 }
 
-- (void)printEnter: (ScanItem *)scanItem {
-//    Puts(@"{entered: %@}", scanItem.jsonString);
-}
-- (void)printExit: (ScanItem *)scanItem {
-//    Puts(@"{exited: %@}", scanItem.jsonString);
-}
-
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)rssi
 {
     ScanItem *scanItem = [[ScanItem alloc] initWithPeripheral:peripheral advertisementData:advertisementData RSSI:rssi];
@@ -88,7 +79,6 @@
             [self.scans setObject:si forKey:scanItem.identifier];
         } else {
             [self.scans setObject:scanItem forKey:scanItem.identifier];
-            [self printEnter:scanItem];
         }
     }
 }
